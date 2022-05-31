@@ -12,6 +12,8 @@
   },
   "keywords": [],
   "author": "",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/prompt-sync": "^4.1.1"
+  },
   "description": ""
 }

@@ -14,14 +14,14 @@ function main(){
 function calc_mcm(number1, number2){
     let mcm = 1
 
-    while(!(verify_number_is_multiple(number1, mcm) && verify_number_is_multiple(number2, mcm))){
+    while(!(is_multiple(number1, mcm) && is_multiple(number2, mcm))){
         mcm++
     }
 
     return mcm
 }
 
-function verify_number_is_multiple(number1, number2){
+function is_multiple(number1, number2){
     return number1 % number2 === 0
 }
 
