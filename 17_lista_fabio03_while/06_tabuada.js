@@ -18,6 +18,8 @@ function multiplication_table(limitNumber){
 
         while (number1 <= limitNumber) {
             result = number1 * number2
+            
+            // Theses if lines are for aestheritic purpose only 
             if (number1 === 1 && number2 < 10 && result < 10) {
                 multiplicationTable += `| ${number1}x${number2} = ${result}   |`
             } else if (number1 === 1 && number2 < 10 && result >= 10) {
@@ -33,7 +35,7 @@ function multiplication_table(limitNumber){
             } else {
                 multiplicationTable += ` ${number1}x${number2} = ${result} |`
             }
-            
+
             number1++
         }
         

@@ -2,9 +2,9 @@ import prompt from 'prompt-sync'
 const input = prompt()
 
 function main() {
-    const firstTerm = Number(input('Digite o primeiro termo da sequência aritimética: '))
-    const limitNumber = Number(input('Digite o limite da sequência aritimética: '))
-    const ratioBetweenTerms = Number(input('Digite a razão da sequência aritimética: '))
+    const firstTerm = Number(input('Digite o primeiro termo: '))
+    const limitNumber = Number(input('Digite o limite: '))
+    const ratioBetweenTerms = Number(input('Digite a razão: '))
 
     const geometricProgression = calc_geometric_progression(firstTerm, ratioBetweenTerms, limitNumber)
 
