@@ -10,12 +10,20 @@ function main() {
 }
 
 function calc_factorial(number) {
-    let factorial = 0
-
-    while (number >= 1){
-        factorial = factorial * number
+    if (number === 0) {
+        return 1
+    } else {
+        let factorial = number
         number--
+
+        while (number >= 1){
+            factorial = factorial * number
+            number--
+        }
+
+        return factorial
     }
+    
 }
 
 main()
