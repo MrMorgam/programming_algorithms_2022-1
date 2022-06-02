@@ -6,12 +6,12 @@ function main() {
     const limitNumber = Number(input('Digite o limite da sequência aritimética: '))
     const differenceBetweenTerms = Number(input('Digite a razão da sequência aritimética: '))
 
-    const arithmeticProgression = calc_arithmetic_progression(firstTerm, differenceBetweenTerms, limitNumber)
+    const arithmeticProgression = arithmetic_progression(firstTerm, differenceBetweenTerms, limitNumber)
 
     console.log(`PA: ${arithmeticProgression}`)
 }
 
-function calc_arithmetic_progression(firstTerm, differenceBetweenTerms, limitNumber) {
+function arithmetic_progression(firstTerm, differenceBetweenTerms, limitNumber) {
     let arithmeticProgression = `${firstTerm}`
     let term = firstTerm
     

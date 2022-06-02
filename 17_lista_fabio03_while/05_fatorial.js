@@ -4,12 +4,12 @@ const input = prompt()
 function main() {
     const number = Number(input('Digite um número: '))
 
-    const factorial = calc_factorial(number)
+    const factorial = factorial_number(number)
 
     console.log(`${number}! = ${factorial}`)
 }
 
-function calc_factorial(number) {
+function factorial_number(number) {
     if (number === 0) {
         return 1
     } else {
