@@ -5,17 +5,17 @@ function main() {
     const lowerLimit = Number(input('Digite um número inteiro para o limite inferior: '))
     const upperLimit = Number(input('Digite um número inteiro para o limite superior: '))
 
-    const oddNumbers = multiples_of_a_number_in_range(upperLimit, lowerLimit)
+    const oddNumbers = multiplesInRange(upperLimit, lowerLimit)
 
     console.log(`Lista de números pares entre ${lowerLimit} e ${upperLimit}:${oddNumbers}`)
 }
 
-function multiples_of_a_number_in_range(upperLimit, lowerLimit) {
+function multiplesInRange(upperLimit, lowerLimit) {
     let number = lowerLimit
     let oddNumbers = ''
     
     while (number <= upperLimit) {    
-        if (!is_even(number)) {
+        if (!isEven(number)) {
             oddNumbers += ` ${number}`
         }
 
@@ -29,7 +29,7 @@ function multiples_of_a_number_in_range(upperLimit, lowerLimit) {
     }
 }
 
-function is_even(number) {
+function isEven(number) {
     return number % 2 === 0
 }
 

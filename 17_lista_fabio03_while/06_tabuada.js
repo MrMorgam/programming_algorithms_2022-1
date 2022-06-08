@@ -1,13 +1,13 @@
 function main() {
     console.log('Tabuada dos números de 1 a 10\n')
     
-    const multiplicationTable = multiplication_table(10)
+    const multiplicationTable = multiplicationTable(10)
 
     console.log(multiplicationTable)
 
 }
 
-function multiplication_table(limitNumber){
+function multiplicationTable(limitNumber){
     let number1 = 1
     let number2 = 1
     let result = 0

@@ -4,12 +4,12 @@ const input = prompt()
 function main() {
     const number = Number(input('Digite um número inteiro maior que 1: '))
 
-    const integers = integers_1_to_n(number)
+    const integers = integersInRange(number)
 
     console.log(`Números inteiros de 1 a ${number}: ${integers}`)
 }
 
-function integers_1_to_n(number) {
+function integersInRange(number) {
     let integers = `${number}`
     number--
 

@@ -4,15 +4,15 @@ const input = prompt()
 function main() {
     const number = Number(input('Digite um número inteiro maior que 1: '))
 
-    const evenIntegers = even_integers_1_to_n(number)
+    const evenIntegers = evenIntegersInRange(number)
 
     console.log(`Números inteiros pares de 1 a ${number}: ${evenIntegers}`)
 }
 
-function even_integers_1_to_n(number) {
+function evenIntegersInRange(number) {
     let evenIntegers 
     
-    if (is_even(number)) {
+    if (isEven(number)) {
         evenIntegers = `${number}`
         number--
     } else {
@@ -22,7 +22,7 @@ function even_integers_1_to_n(number) {
 
 
     while (number >= 1) {
-        if (is_even(number)) {
+        if (isEven(number)) {
             evenIntegers += ` ${number}`
         }
 
@@ -32,7 +32,7 @@ function even_integers_1_to_n(number) {
     return evenIntegers
 }
 
-function is_even(number) {
+function isEven(number) {
     return (number % 2 === 0)
 }
 

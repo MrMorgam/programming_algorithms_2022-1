@@ -4,12 +4,12 @@ const input = prompt()
 function main() {
     const number = Number(input('Digite um número inteiro maior que 1: '))
 
-    const sum = sum_integers_1_to_n(number)
+    const sum = sumIntegersInRange(number)
 
     console.log(`Soma dos números inteiros de 1 a ${number}: ${sum}`)
 }
 
-function sum_integers_1_to_n(number) {
+function sumIntegersInRange(number) {
     let sum = number
     number--
 

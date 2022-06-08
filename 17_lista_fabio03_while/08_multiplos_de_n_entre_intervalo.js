@@ -6,17 +6,17 @@ function main() {
     const lowerLimit = Number(input('Digite um número inteiro para o limite inferior: '))
     const upperLimit = Number(input('Digite um número inteiro para o limite superior: '))
 
-    const multiples = multiples_of_a_number_in_range(number, upperLimit, lowerLimit)
+    const multiples = multiplesInRange(number, upperLimit, lowerLimit)
 
     console.log(`Lista de números múltiplos de ${number} entre ${lowerLimit} e ${upperLimit}:${multiples}`)
 }
 
-function multiples_of_a_number_in_range(number, upperLimit, lowerLimit) {
+function multiplesInRange(number, upperLimit, lowerLimit) {
     let multipleNumber = lowerLimit
     let multiples = ''
     
     while (multipleNumber <= upperLimit) {    
-        if (is_multiple(multipleNumber, number)) {
+        if (isMultiple(multipleNumber, number)) {
             multiples += ` ${multipleNumber}`
         }
 
@@ -30,7 +30,7 @@ function multiples_of_a_number_in_range(number, upperLimit, lowerLimit) {
     }
 }
 
-function is_multiple(number1, number2) {
+function isMultiple(number1, number2) {
     return number1 % number2 === 0
 }
 

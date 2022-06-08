@@ -6,12 +6,12 @@ function main() {
     const limitNumber = Number(input('Digite o limite: '))
     const ratioBetweenTerms = Number(input('Digite a razão: '))
 
-    const geometricProgression = geometric_progression(firstTerm, ratioBetweenTerms, limitNumber)
+    const geometricProgression = geometricProgression(firstTerm, ratioBetweenTerms, limitNumber)
 
     console.log(`PG: ${geometricProgression}`)
 }
 
-function geometric_progression(firstTerm, ratioBetweenTerms, limitNumber) {
+function geometricProgression(firstTerm, ratioBetweenTerms, limitNumber) {
     let geometricProgression = `${firstTerm}`
     let term = firstTerm
     
