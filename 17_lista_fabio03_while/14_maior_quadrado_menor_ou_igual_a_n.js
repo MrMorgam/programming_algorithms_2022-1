@@ -2,7 +2,7 @@ import prompt from 'prompt-sync'
 const input = prompt()
 
 function main() {
-    const number = Number(input('Digite um número: '))
+    const number = Number(input('Digite um número inteiro positivo: '))
 
     const greaterSquare = greaterSquareLessOrEqualToNumber(number)
 

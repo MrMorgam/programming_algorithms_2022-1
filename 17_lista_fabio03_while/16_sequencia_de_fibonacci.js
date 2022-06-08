@@ -2,14 +2,14 @@ import prompt from 'prompt-sync'
 const input = prompt()
 
 function main() {
-    const number = Number(input('Digite um número: '))
+    const number = Number(input('Digite um número inteiro maior que 2: '))
 
-    const sequenceofNumbers = numberSequence(number)
+    const fibonacciSeries = fibonacciSeriesNTimes(number)
 
-    console.log(`(${sequenceofNumbers})`)
+    console.log(`${fibonacciSeries}`)
 }
 
-function numberSequence(number) {
+function fibonacciSeriesNTimes(number) {
     let i = 2
     let penultimateNumber = 0
     let lastNumber = 1
