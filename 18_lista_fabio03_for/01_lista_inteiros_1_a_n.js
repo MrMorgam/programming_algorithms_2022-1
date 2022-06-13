@@ -10,12 +10,10 @@ function main() {
 }
 
 function integersInRange(startNumber, endNumber) {
-    let i = startNumber
     let listOfIntegers = ''
 
-    while (i <= endNumber) { 
+    for (let i = startNumber; i <= endNumber; i++) { 
         listOfIntegers += ` ${i}`
-        i++
     }
 
     return listOfIntegers

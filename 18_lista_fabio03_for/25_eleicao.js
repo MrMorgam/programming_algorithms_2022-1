@@ -6,13 +6,9 @@ function main() {
 
     const votes = new Array(numberOfVoters)
 
-    let i = 0
-
-    while (i < numberOfVoters) {
+    for (let i = 0; i < numberOfVoters; i++) {
         console.log(`\nEleitor ${i+1}:`)
         votes[i] = Number(input('Digite seu voto: '))
-
-        i++
     }
 
     const votesCandidate1 = countVotes(votes, 1)
@@ -32,32 +28,26 @@ function main() {
 }
 
 function countVotes(votes, digitOfVote) {
-    let i = 0
     let totalVotes = 0
 
-    while (i < votes.length) {
+    for (let i = 0; i < votes.length; i++) {
         if (votes[i] === digitOfVote) {
             totalVotes++
         }
-
-        i++
     }
 
     return totalVotes
 }
 
 function countElectionWinner(votesArray){
-    let i = 0
     let mostVoted = 0
     let candidate = 0
 
-    while (i < votesArray.length) {
+    for (let i = 0; i < votesArray.length; i++) {
         if (votesArray[i] > mostVoted) {
             mostVoted = votesArray[i]
             candidate = i + 1
         }
-        
-        i++
     }
 
     return candidate

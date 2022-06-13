@@ -13,17 +13,14 @@ function calcFactorial(number) {
     if (number === 0) {
         return 1
     } else {
-        let factorial = number
-        number--
+        let factorial = 1
 
-        while (number >= 1){
-            factorial = factorial * number
-            number--
+        for (let i = number; i > 1; i--) {
+            factorial *= i
         }
 
         return factorial
     }
-    
 }
 
 main()

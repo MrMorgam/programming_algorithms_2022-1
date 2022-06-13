@@ -13,11 +13,9 @@ function main() {
 
 function numbersOfAnArithmeticProgression(firstTerm, differenceBetweenTerms, limitNumber) {
     let arithmeticProgression = ''
-    let term = firstTerm
     
-    while (term < limitNumber) {
+    for (let term = firstTerm; term < limitNumber; term += differenceBetweenTerms) {
         arithmeticProgression += ` ${term}`
-        term += differenceBetweenTerms
     }
 
     return arithmeticProgression

@@ -13,11 +13,9 @@ function main() {
 
 function numbersOfAGeometricProgression(firstTerm, ratioBetweenTerms, limitNumber) {
     let geometricProgression = ''
-    let term = firstTerm
     
-    while (term < limitNumber) {
+    for (let term = firstTerm; term < limitNumber; term *= ratioBetweenTerms) {
         geometricProgression += ` ${term}`
-        term *= ratioBetweenTerms
     }
 
     return geometricProgression

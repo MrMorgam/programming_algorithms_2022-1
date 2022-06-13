@@ -8,14 +8,12 @@ function main() {
 }
 
 function multiplicationTable1ToN(limitNumber){
-    let number1 = 1
-    let number2 = 1
     let result = 0
     let multiplicationTable = ''
         
-    while (number2 <= limitNumber) {
+    for (let number2 = 1; number2 <= limitNumber; number2++) {
 
-        while (number1 <= limitNumber) {
+        for (let number1 = 1; number1 <= limitNumber; number1++) {
             result = number1 * number2
             
             // Theses if lines are for aestheritic purpose only 
@@ -34,13 +32,9 @@ function multiplicationTable1ToN(limitNumber){
             } else {
                 multiplicationTable += ` ${number1}x${number2} = ${result} |`
             }
-
-            number1++
         }
         
         multiplicationTable += `\n`
-        number2++
-        number1 = 1
     }
 
     return multiplicationTable

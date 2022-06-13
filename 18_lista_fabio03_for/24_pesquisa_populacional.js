@@ -7,14 +7,10 @@ function main() {
     const salary = new Array(numberOfDwellers)
     const numberOfChildren = new Array(numberOfDwellers)
 
-    let i = 0
-
-    while (i < numberOfDwellers) {
+    for (let i = 0; i < numberOfDwellers; i++) {
         console.log(`\nHabitante ${i+1}:`)
         salary[i] = Number(input('Digite o salário: '))
         numberOfChildren[i] = Number(input('Digite a quantidade de filhos: '))
-
-        i++
     }
 
     const averageWage = calcAverageWage(salary)
@@ -27,39 +23,32 @@ function main() {
 }
 
 function calcAverageWage(salary) {
-    let i = 0
     let sumOfSalaries = 0
 
-    while (i < salary.length) {
+    for (let i = 0; i < salary.length; i++) {
         sumOfSalaries += salary[i]
-        i++
     }
 
     return sumOfSalaries / salary.length
 }
 
 function calcAverageNumberOfChildren(numberOfChildren) {
-    let i = 0
     let sumOfChildren = 0
 
-    while (i < numberOfChildren.length) {
+    for (let i = 0; i < numberOfChildren.length; i++) {
         sumOfChildren += numberOfChildren[i]
-        i++
     }
 
     return sumOfChildren / numberOfChildren.length
 }
 
 function numberOfPeopleThatEarn1000OrLessPercentage(salary) {
-    let i = 0
     let peopleThatEarn1000OrLess = 0
 
-    while (i < salary.length) {
+    for (let i = 0; i < salary.length; i++) {
         if (salary[i] <= 1000){
             peopleThatEarn1000OrLess++
         }
-        
-        i++
     }
 
     return (peopleThatEarn1000OrLess / salary.length) * 100

@@ -10,15 +10,12 @@ function main() {
 }
 
 function evenIntegersInRange(startNumber, endNumber) {
-    let i = startNumber
     let listOfEvenIntegers = ''
 
-    while (i <= endNumber) {
+    for (let i = startNumber; i <= endNumber; i++) {
         if (isEven(i)) {
             listOfEvenIntegers += ` ${i}`
         }
-
-        i++
     }
 
     return listOfEvenIntegers

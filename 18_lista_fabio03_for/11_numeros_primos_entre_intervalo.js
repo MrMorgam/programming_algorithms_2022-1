@@ -35,12 +35,10 @@ function isPrime(number) {
     if (number <= 1) {
         return false
     } else {
-        while (i < number) {
+        for (; i < number; i++) {
             if (number % i === 0) {
                 return false
             }
-
-            i++
         }
 
         return true
