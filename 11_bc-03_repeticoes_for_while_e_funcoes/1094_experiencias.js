@@ -1,7 +1,7 @@
 import prompt from 'prompt-sync'
 const input = prompt()
 
-function main(){
+function main() {
     let counter = 0
     const testQtt = Number(input('Digite a quantidade de testes a serem feitos: '))
     let line
@@ -11,16 +11,16 @@ function main(){
     let rabbitQtt = 0
     let mouseQtt = 0
 
-    while(counter < testQtt){
+    while (counter < testQtt) {
         line = input('Digite a quantidade e o tipo do teste: ').split(' ')
         quantity = Number(line[0])
         type =  line[1]
 
-        if(is_a_frog(type)){
+        if (is_a_frog(type)) {
             frogQtt += quantity
-        }else if(is_rabbit(type)){
+        } else if (is_rabbit(type)) {
             rabbitQtt += quantity
-        }else{
+        } else {
             mouseQtt += quantity
         }
         
@@ -41,11 +41,11 @@ function main(){
     console.log(`Percentual de sapos: ${frogPercentage.toFixed(2)} %`)  
 }
 
-function is_a_frog(type){
+function is_a_frog(type) {
     return type === 'S'
 }
 
-function is_rabbit(type){
+function is_rabbit(type) {
     return type === 'C'
 }
 

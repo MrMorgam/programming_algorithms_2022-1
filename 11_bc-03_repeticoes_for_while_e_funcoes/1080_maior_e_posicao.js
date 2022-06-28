@@ -1,17 +1,17 @@
 import prompt from 'prompt-sync'
 const input = prompt()
 
-function main(){
+function main() {
     let counter = 1
     let number
     let maxNumber = Number(input(`Valor ${counter}: `))
     let maxNumberPosition = 1
 
-    while(counter < 10){
+    while (counter < 10) {
         counter++
         number = Number(input(`Valor ${counter}: `))
 
-        if(number > maxNumber){
+        if (number > maxNumber) {
             maxNumber = number
             maxNumberPosition = counter
         }

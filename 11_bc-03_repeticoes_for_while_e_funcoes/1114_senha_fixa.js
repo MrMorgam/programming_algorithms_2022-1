@@ -1,13 +1,12 @@
-const input = require('fs').readFileSync('/dev/stdin', 'utf8');
-var lines = input.split('\n');
+import prompt from 'prompt-sync'
+const input = prompt()
 
-function main(){
-    let index = 0
-    let password = Number(lines[index++])
+function main() {
+    let password = Number(input('Digite a senha: '))
 
-    while(password !== 2022){
+    while (password !== 2022) {
+        password = Number(input('Digite a senha: '))
         console.log('Senha Invalida')
-        password = Number(lines[index++])
     }
 
     console.log('Acesso Permitido')

@@ -5,23 +5,23 @@ function main(){
     const number1 = Number(input('Digite um número inteiro: '))
     const number2 = Number(input('Digite outro número inteiro: '))
 
-    const mcm = calc_mcm(number1, number2)
+    const lcm = calc_lcm(number1, number2)
 
-    console.log(`MMC(${number1},${number2}) = ${mcm}`)
+    console.log(`lcm(${number1},${number2}) = ${lcm}`)
 
 }
 
-function calc_mcm(number1, number2){
-    let mcm = 1
+export function calc_lcm(number1, number2){
+    let lcm = 1
 
-    while(!(is_multiple(number1, mcm) && is_multiple(number2, mcm))){
-        mcm++
+    while(!(isMultiple(number1, lcm) && isMultiple(number2, lcm))){
+        lcm++
     }
 
-    return mcm
+    return lcm
 }
 
-function is_multiple(number1, number2){
+function isMultiple(number1, number2){
     return number1 % number2 === 0
 }
 

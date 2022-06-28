@@ -1,7 +1,7 @@
 import prompt from 'prompt-sync'
 const input = prompt()
 
-function main(){
+function main() {
     let numbers = input('Digite dois números: ').split(' ').map(Number)
     let m = numbers[0]
     let n = numbers[1]
@@ -9,19 +9,19 @@ function main(){
     let output
     let sum
 
-    while(!(m <= 0 || n <= 0)){
+    while (!(m <= 0 || n <= 0)) {
         output = ''
         sum = 0
 
-        if(m >= n){
+        if (m >= n) {
             greater = m
             smaller = n
-        }else{
+        } else {
             greater = n
             smaller = m
         }
 
-        while(smaller <= greater){
+        while (smaller <= greater) {
             sum += smaller
             output += `${smaller} `
             smaller++
