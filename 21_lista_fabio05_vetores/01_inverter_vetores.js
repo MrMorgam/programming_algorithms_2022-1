@@ -1,28 +1,28 @@
-import prompt from 'prompt-sync'
-const input = prompt()
+import { displayMessage, getNumber, newArray } from '../utilities.js'
 
 function main() {
-    const length = Number(input('Digite o tamanho do vetor: '))
-    const array = new Array(length)
+    const length = getNumber('Digite o tamanho do vetor: ')
+    const array = newArray(length)
 
     for (let i = 0; i < length; i++) {
-        array[i] = Number(input(`Digite o número na posição ${i+1}: `))
+        array[i] = getNumber(`Digite o número na posição [${i+1}]: `)
     }
     
     const invertedArray = invertArray(array)
 
-    console.log(`Vetor invertido: (${invertedArray})`)
+    displayMessage(`\nArray invertido: (${invertedArray})`)
 }
 
 
 function invertArray(array) {
-    let invertedArray = []
+    const length = array.length
+    let invertedArray = newArray(length)
     
-    let j = 0
+    let j = length - 1
 
-    for (let i = array.length; i > 0; i--) {
+    for (let i = 0; i < length; i++) {
         invertedArray[i] = array[j]
-        j++
+        j--
     }
 
     return invertedArray

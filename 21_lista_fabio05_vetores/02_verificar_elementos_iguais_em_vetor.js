@@ -1,30 +1,37 @@
-import prompt from 'prompt-sync'
-const input = prompt()
+import { displayMessage, getNumber, newArray } from '../utilities.js'
 
 function main() {
-    const length = Number(input('Digite o tamanho do vetor: '))
-    const array = new Array(length)
+    const length = getNumber('Digite o tamanho do vetor: ')
+    const array = newArray(length)
 
     for (let i = 0; i < length; i++) {
-        array[i] = Number(input(`Digite o número na posição ${i+1}: `))
+        array[i] = getNumber(`Digite o número na posição [${i+1}]: `)
     }
     
-    const invertedArray = verifyEqualElementsOfArray(array)
+    const equalElements = thereIsEqualElementsInArray(array)
 
-    console.log(`Elementos iguais dentro do vetor: (${invertedArray})`)
+    if (equalElements) {
+        displayMessage(`\nExistem elementos iguais dentro do vetor!`)
+    } else {
+        displayMessage('\nNão existem elementos iguais dentro do vetor!')
+    }
+   
 }
 
 
-function verifyEqualElementsOfArray(array) {
-    let a
-    
-    let j = 0
+function thereIsEqualElementsInArray(array) {
+    let aux = 0
 
     for (let i = 0; i < array.length; i++) {
-        
+        aux = array[i]
+        for (let j = 0; j < array.length; j++) {
+            if (aux === array[j] && !(i === j)) {
+                return true
+            }
+        }
     }
 
-    return invertedArray
+    return false
 }
 
 
