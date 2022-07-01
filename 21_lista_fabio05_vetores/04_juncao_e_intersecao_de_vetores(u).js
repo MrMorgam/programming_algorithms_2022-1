@@ -23,7 +23,7 @@ function main() {
 }
 
 
-function arrayUnionRepresentation(array1, array2) { // ERROR
+function arrayUnionRepresentation(array1, array2) {
     const length = array1.length
     const array3 = newArray()
 
@@ -35,21 +35,21 @@ function arrayUnionRepresentation(array1, array2) { // ERROR
     }
 
     k = length
-
-    let isUnique = false
+    let diff = true
 
     for (let i = 0; i < length; i++) {
         for (let j = 0; j < length; j++) {
             if (array2[i] === array1[j]) {
-                isUnique = false
+                diff = false
                 break
-            }   
+            }
         }
-        
-        if (isUnique) {
+
+        if (diff) {
             array3[k] = array2[i]
             k++
         }
+        
     }
 
     return array3
