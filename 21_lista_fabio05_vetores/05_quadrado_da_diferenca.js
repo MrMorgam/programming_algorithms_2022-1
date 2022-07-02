@@ -11,17 +11,19 @@ function main() {
 
     const differenceSquare = calcDifferenceSquareOfArray(array)
 
-    displayMessage(`S = ${differenceSquare}`)
+    displayMessage(`\nS = ${differenceSquare}`)
 }
 
 
 function calcDifferenceSquareOfArray(array) {
-    let j = array.length+1
+    let j = array.length - 1
     let s = 0
+
     for (let i = 0; i < (array.length / 2); i++) {
+        console.log(`(${array[i]} - ${array[j]})² = ${(array[i] - array[j]) ** 2}`)
         s += (array[i] - array[j]) ** 2
         j--
-        console.log(`(${i} - ${j})² = ${(array[i] - array[j]) ** 2}`)
+       
     }
 
     return s

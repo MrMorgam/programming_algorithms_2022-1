@@ -35,21 +35,20 @@ function arrayUnionRepresentation(array1, array2) {
     }
 
     k = length
-    let diff = true
+    let counter = 0
 
     for (let i = 0; i < length; i++) {
+        counter = 0
         for (let j = 0; j < length; j++) {
-            if (array2[i] === array1[j]) {
-                diff = false
-                break
+            if (array2[i] !== array1[j]) {
+                counter++
+            }
+            
+            if (counter === length) {
+                array3[k] = array2[i]
+                k++
             }
         }
-
-        if (diff) {
-            array3[k] = array2[i]
-            k++
-        }
-        
     }
 
     return array3

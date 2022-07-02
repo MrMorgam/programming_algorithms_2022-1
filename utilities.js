@@ -59,3 +59,8 @@ function isNumberInRange(n, min, max) {
     return !(n > max || n < min)
 
 }
+
+
+export function isOdd(n) {
+    return n % 2 === 0
+}
