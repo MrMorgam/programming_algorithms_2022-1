@@ -1,5 +1,5 @@
 import prompt from 'prompt-sync'
-const input = prompt()
+const input = prompt({ sigint: true })
 
 function main(){
     const [number1, number2, number3] = input().split(' ').map(Number)

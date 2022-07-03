@@ -78,7 +78,11 @@ function main() {
             showNegativeNumbersAndTheirQuantity(array)
 
         } else if (userInput === 9) {
+            showThirdMenu()
             
+            mapArray(array, operation)
+
+
         } else if (userInput === 10) {
             
         } else if (userInput === 11) {
@@ -275,6 +279,15 @@ function showNegativeNumbersAndTheirQuantity(array) {
 
 function randomNumberInRange(minNumber, maxNumber) {
     return Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber)
+}
+
+
+function mapArray(array, operation) {
+    for (let i = 0; i < array.length; i++) {
+        array[i] = operation(array[i])
+    }
+
+    return array
 }
 
 

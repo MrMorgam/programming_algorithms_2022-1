@@ -1,11 +1,11 @@
 import { displayMessage, getString } from '../utilities.js'
 
 function main() {
-    const date = getString('Digite uma data no formato dd/mm/aaaa: ')
+    const date = getString('Digite uma data (no formato dd/mm/aaaa): ')
 
     const dateInFull = writeDateInFull(date)
 
-    displayMessage(`\nData: ${dateInFull}`)
+    displayMessage(`\nData por extenso: ${dateInFull}`)
 }
 
 

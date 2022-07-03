@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 import prompt from 'prompt-sync'
-const input = prompt()
+const input = prompt({ sigint: true })
 
 // Input
 
