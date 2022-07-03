@@ -1,17 +1,11 @@
-import { getNumber, getString, getIntegerInRange, newArray, displayMessage, newArray2 } from "./utilities.js"
+import { displayMessage, loadFile } from "./utilities.js"
 
 function main() {
-    const number = getNumber()
-    const integer = getIntegerInRange()
-    const string = getString()
-    const array = newArray()
-    const array2 = newArray2()
+    let names = loadFile('examples.txt').split('\n').map(Number)
 
-    displayMessage(number)
-    displayMessage(integer)
-    displayMessage(string)
-    displayMessage(array)
-    displayMessage(array2)
+    for (let i = 0; i < names.length; i++) {
+        displayMessage(names[i])
+    }
 }
 
 main()

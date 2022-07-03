@@ -1,3 +1,4 @@
+import * as fs from 'fs'
 import prompt from 'prompt-sync'
 const input = prompt()
 
@@ -29,11 +30,72 @@ export function getIntegerInRange(message = 'Digite um número inteiro: ', min =
     return integer
 }
 
+export function loadFile(filename){
+    try{
+        const data = fs.readFileSync(filename, "utf-8")
+        return data
+    } catch (error){
+        console.error(error)
+    }
+}
+
+
+
 // Arrays
 
 export function newArray(length = 0) {
     return new Array(length)
 }
+
+
+// Strings
+
+function isConsonant(character) {
+
+    return (isLetter(character) && !isVowell(character))
+
+}
+
+
+function isUppercaseLetter(character) {
+    const charCode = character.charCodeAt(0)
+    
+    return (charCode <= 65 && charCode <= 90)
+}
+
+function isLowercaseLetter(character) {
+    const charCode = character.charCodeAt(0)
+    
+    return (charCode <= 97 && charCode <= 122)
+}
+
+
+function isLetter(character) {
+
+    return (isLowercaseLetter(character) || isUppercaseLetter(character))
+
+}
+
+
+function isLowercaseVowell(character) {
+    const charCode = character.charCodeAt(0)
+
+    return (charCode === 97 || charCode === 101 || charCode === 105 || charCode === 111 || charCode === 117)
+}
+
+
+function isUppercaseVowell(character) {
+    const charCode = character.charCodeAt(0)
+
+    return (charCode === 65 || charCode === 69 || charCode === 73 || charCode === 79 || charCode === 85)
+}
+
+export function isVowell(character) {
+
+    return (isLowercaseVowell(character) || isUppercaseVowell(character))
+
+}
+
 
 // Matrices
 
@@ -46,6 +108,7 @@ export function newMatrix(rowsNumber, columnsNumber = rowsNumber){
 
     return matrix
 }
+
 
 export function displayMatrix(matrix, title = 'Dados:') {
     console.log(title)
