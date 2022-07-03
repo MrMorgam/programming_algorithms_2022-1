@@ -35,6 +35,22 @@ export function newArray(length = 0) {
     return new Array(length)
 }
 
+// Matrices
+
+export function newMatrix(rowsNumber, columnsNumber = rowsNumber){
+    const matrix = newArray(rowsNumber)
+
+    for (let i = 0; i < rowsNumber; i++){
+        matrix[i] = newArray(columnsNumber)
+    }
+
+    return matrix
+}
+
+export function displayMatrix(matrix, title = 'Dados:') {
+    console.log(title)
+    console.table(matrix)
+}
 
 // Output
 
