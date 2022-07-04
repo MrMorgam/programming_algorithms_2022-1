@@ -13,7 +13,7 @@ function main() {
 
     const valorConsumoBase = consumoKWh * valorBaseKWh
 
-    const valorBandeira = calcValorBandeira(valorBandeiraCada100kWh)
+    const valorBandeira = calcValorBandeira(valorBandeiraCada100kWh, consumoKWh)
     
     let valorKWh = valorBaseKWh + valorBandeira
 
@@ -90,7 +90,7 @@ function calcTaxaIluminacao(valorFaturaSemImposto) {
 }
 
 
-function calcValorBandeira(valorBandeiraCada100kWh) {
+function calcValorBandeira(valorBandeiraCada100kWh, consumoKWh) {
     return Math.trunc(consumoKWh / 100) * valorBandeiraCada100kWh
 }
 
