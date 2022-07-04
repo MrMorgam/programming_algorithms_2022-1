@@ -1,3 +1,4 @@
+import * as fs from 'fs'
 import prompt from 'prompt-sync'
 const input = prompt({ sigint: true })
 
@@ -50,6 +51,15 @@ export function inputNumberInRange(message, min, max, errorMessage = message) {
     }
 
     return number
+}
+
+export function loadFile(filename){
+    try{
+        const data = fs.readFileSync(filename, "utf-8")
+        return data
+    } catch (error){
+        console.error(error)
+    }
 }
 
 

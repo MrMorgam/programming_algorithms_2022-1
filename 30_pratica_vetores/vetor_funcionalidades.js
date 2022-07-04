@@ -3,8 +3,10 @@ import { displayText,
     inputNumber, 
     inputNumberInRange, 
     inputPositiveNumber, 
-    inputString } from './utils.js'
-import { createArray } from './vetor_utils.js'
+    inputString, 
+    loadFile } from './utils.js'
+import { createArray, mapArray } from './vetor_utils.js'
+
 
 export function displayMenu() {
     let menu = 'Escolha uma da opções:\n'
@@ -17,7 +19,7 @@ export function displayMenu() {
     menu += '\n7 - Mostrar o somatório dos valores contidos no vetor'
     menu += '\n8 - Mostrar valores positivos contidos no vetor'
     menu += '\n9 - Mostrar valores negativos contidos no vetor'
-    menu += '\n10 - Atualizar os valores do vetor seguindo um regra'
+    menu += '\n10 - Atualizar os valores do vetor seguindo uma regra'
     menu += '\n11 - Adicionar novos valores ao vetor'
     menu += '\n12 - Remover item por valor exato'
     menu += '\n13 - Remover item por posição'
@@ -67,9 +69,13 @@ export function createArrayWithInput(option) {
             array[i] = inputNumberInRange(`Digite um núemro para a posição [${i+1}]: `, min, max)
         }
 
-    } else if (option === 3) { // Unfinished
-        
-        displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+    } else if (option === 3) {
+        displayText('')
+
+        const fileName = inputString('Digite o nome do arquivo: ')
+
+        array = loadFile(fileName).split('\n')
+        array = mapArray(array, element => Number(element))
 
     }
 
@@ -94,4 +100,109 @@ export function countElementInArray(array) {
     }
 
     return counter
+}
+
+
+export function findGreatestValueAndItsPositionInArray(array) {
+    let greatestValue = array[1]
+    let greatestValuePosition = 1
+    
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > greatestValue) {
+            greatestValue = array[i]
+            greatestValuePosition = i + 1
+        }
+    }
+
+    return [greatestValue, greatestValuePosition]
+}
+
+
+export function findSmallestValueAndItsPositionInArray(array) {
+    let smallestValue = array[1]
+    let smallestValuePosition = 1
+    
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < smallestValue) {
+            smallestValue = array[i]
+            smallestValuePosition = i + 1
+        }
+    }
+
+    return [smallestValue, smallestValuePosition]
+}
+
+export function findPositiveValuesAndTheirQuantityInArray(array) {
+    let positiveValues = createArray()
+    let positiveValuesQuantity = 0
+
+    let j = 0
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > 0) {
+            positiveValues[j] = array[i]
+            positiveValuesQuantity++
+            
+            j++
+        }
+    }
+
+    return [positiveValues, positiveValuesQuantity]
+}
+
+
+export function findNegativeValuesAndTheirQuantityInArray(array) {
+    let negativeValues = createArray()
+    let negativeValuesQuantity = 0
+
+    let j = 0
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < 0) {
+            negativeValues[j] = array[i]
+            negativeValuesQuantity++
+            
+            j++
+        }
+    }
+
+    return [negativeValues, negativeValuesQuantity]
+}
+
+
+export function averageValueOfArray(array) {
+    let sum = 0
+
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i]
+    }
+
+    const average = sum / array.length
+
+    return average
+}
+
+
+export function sumOfValuesInArray(array) {
+    let sum = 0
+
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i]
+    }
+
+    return sum
+}
+
+
+export function menuOption10(option) {
+    let menu ='Escolha uma da opções: \n'
+    menu += '\n1 - Multiplicar por um valor'
+    menu += '\n2 - Elevar a um valor'
+    menu += '\n3 - Reduzir a uma fração'
+    menu += '\n4 - Substituir valores negativos por número aleatório'
+    menu += '\n5 - Ordenar valores'
+    menu += '\n6 - Embaralhar valores'
+    menu += '\n\n0 - Sair\n'
+
+    displayText(menu)
 }

@@ -1,11 +1,18 @@
-import { displayText, inputNumberInRange, inputNumber } from './utils.js'
+import { displayText, inputNumberInRange, inputNumber, inputString } from './utils.js'
 import { displayMenu, 
     enterToContinue, 
     createArrayWithInput, 
     menuOption1, 
     resetArray, 
-    countElementInArray } from './vetor_funcionalidades.js'
-import { createArray, displayArray } from './vetor_utils.js'
+    countElementInArray,
+    findGreatestValueAndItsPositionInArray,
+    findSmallestValueAndItsPositionInArray,
+    findPositiveValuesAndTheirQuantityInArray,
+    findNegativeValuesAndTheirQuantityInArray,
+    averageValueOfArray,
+    sumOfValuesInArray,
+    menuOption10 } from './vetor_funcionalidades.js'
+import { addElementArray, createArray, displayArray, mapArray, removeElementArray, removeValueArray } from './vetor_utils.js'
 
 
 function main() {
@@ -52,26 +59,115 @@ function main() {
             displayText(`\nQuantidade de elementos do vetor: ${elementCount}`)
 
         } else if (option === 5) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+            
+            const [smallestValue, smallestValuePosition] = findSmallestValueAndItsPositionInArray(array)
+            
+            const [greatestValue, greatestValuePosition] = findGreatestValueAndItsPositionInArray(array)
+
+            displayText(`\nMenor valor: ${smallestValue} (posição: ${smallestValuePosition}º)`)
+            displayText(`Maior valor: ${greatestValue} (posição: ${greatestValuePosition}º)`)
+
         } else if (option === 6) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+            
+            const average = averageValueOfArray(array)
+
+            displayText(`\nMédia dos valores: ${average}`)
+
         } else if (option === 7) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+            
+            const sum = sumOfValuesInArray(array)
+
+            displayText(`\nSomatório dos valores: ${sum}`)
+
         } else if (option === 8) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+            
+            const [positiveValues, positiveValuesQuantity] = findPositiveValuesAndTheirQuantityInArray(array)
+
+            displayText('\nValores positivos:')
+            displayArray(positiveValues)
+            displayText(`\nQuantidade de valores positivos: ${positiveValuesQuantity}`)
+
         } else if (option === 9) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
-        } else if (option === 10) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+
+            const [negativeValues, negativeValuesQuantity] = findNegativeValuesAndTheirQuantityInArray(array)
+
+            displayText('\nValores negativos:')
+            displayArray(negativeValues)
+            displayText(`\nQuantidade de valores negativos: ${negativeValuesQuantity}`)
+
+        } else if (option === 10) { // Unfinished
+
+            console.clear()
+            menuOption10()
+    
+            let option10 = inputNumberInRange('Digite uma opção: ', 0, 6, 'Opção inválida! Digite uma opção: ')
+            
+            if (option10 === 1) {
+
+                displayText('')
+
+                const value = inputNumber('Digite o valor a multiplicar todos os elementos do vetor: ')
+
+                array = mapArray(array, n => n * value)
+
+            } else if (option10 === 2) {
+                
+                displayText('')
+
+                const value = inputNumber('Digite o valor a qual todos os elementos do vetor serão elevados: ')
+
+                array = mapArray(array, n => n ** value)
+
+            } else if (option10 === 3) { // Unfinished
+                
+            } else if (option10 === 4) { // Unfinished
+                
+            } else if (option10 === 5) { // Unfinished
+                
+            } else if (option10 === 6) { // Unfinished
+                
+            }
+
         } else if (option === 11) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+
+            displayText('')
+
+            const value = inputNumber('Digite o valor a ser adicionado no vetor: ')
+            const position = inputNumber('Digite a posição em que o valor deverá ser adicionado: ')
+
+            array = addElementArray(array, value, position)
+
+            displayText(`\nNovo vetor:`)
+            displayArray(array)
+
         } else if (option === 12) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+
+            displayText('')
+
+            const value = inputNumber('Digite o valor a ser removido do vetor: ')
+
+            array = removeValueArray(array, value)
+
+            displayText(`\nNovo vetor:`)
+            displayArray(array)
+
         } else if (option === 13) {
+
+            displayText('')
+
+            const position = inputNumber('Digite a posição do valor que deverá ser removidos: ')
+
+            array = removeElementArray(array, position)
+
+            displayText(`\nNovo vetor:`)
+            displayArray(array)
+
+        } else if (option === 14) { // Unfinished
+
             displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
-        } else if (option === 14) {
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+
         }
+
     
         enterToContinue()
         displayMenu()

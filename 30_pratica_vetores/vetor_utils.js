@@ -66,6 +66,22 @@ export function removeElementArray(array, position) {
 }
 
 
+export function removeValueArray(array, value) {
+    const newArray = createArray()
+
+    let j = 0
+    
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== value) {
+            newArray[j] = array[i]
+            j++
+        }
+    }
+
+    return newArray
+}
+
+
 export function displayArray(array) {
     return console.log(array)
 }
