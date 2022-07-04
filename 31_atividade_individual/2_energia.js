@@ -3,29 +3,17 @@ import { inputNumberWithMinValue, inputString } from './1_utils.js'
 
 function main() {
     const consumidor = inputString('Digite o nome do consumidor: ')
+    const bandeira = inputString('Digite a bandeira tarifária: ')
+    const consumoKWh = inputNumberWithMinValue('Digite o consumo do mês em KWh: ', 0)
 
     // (a)
     const valorBaseKWh = 0.89
-    
-    const bandeira = inputString('Digite a bandeira tarifária: ')
 
-    let valorBandeiraCada100kWh = 0
-
-    if (bandeira === 'verde') {
-        valorBandeiraCada100kWh = 0
-    } else if (bandeira === 'amarela') {
-        valorBandeiraCada100kWh = 2.989
-    } else if (bandeira === 'vermelha patamar 1') {
-        valorBandeiraCada100kWh = 6.5
-    } else if (bandeira === 'vermelha patamar 2') {
-        valorBandeiraCada100kWh = 9.795
-    }
-
-    const consumoKWh = inputNumberWithMinValue('Digite o consumo do mês em KWh: ', 0)
+    const valorBandeiraCada100kWh = calcValorBandeiraCada100kWh(bandeira)
 
     const valorConsumoBase = consumoKWh * valorBaseKWh
 
-    const valorBandeira = Math.trunc(consumoKWh / 100) * valorBandeiraCada100kWh
+    const valorBandeira = calcValorBandeira(valorBandeiraCada100kWh)
     
     let valorKWh = valorBaseKWh + valorBandeira
 
@@ -42,22 +30,15 @@ function main() {
     let valorFaturaSemImposto = valorKWh * consumoKWh
 
     // (d)
-    let taxaIluminacao = 0
+    const taxaIluminacao = calcTaxaIluminacao(valorFaturaSemImposto)
 
-    if (valorFaturaSemImposto === 0) {
-        taxaIluminacao = 0
-    } else {
-        taxaIluminacao = 0.03 * valorFaturaSemImposto
-    }
-
-    valorFaturaSemImposto += taxaIluminacao
 
     // (e)
 
     const icms = valorFaturaSemImposto * 0.25
     const pisCofins = valorFaturaSemImposto * 0.0375
 
-    const valorFaturaComImposto = valorFaturaSemImposto  + icms + pisCofins
+    const valorFaturaComImposto = valorFaturaSemImposto  + icms + pisCofins + taxaIluminacao
 
     
     mostrarExtrato(consumidor, consumoKWh, valorConsumoBase, valorBandeira, valorBandeiraCada100kWh, valorFaturaSemImposto, icms, pisCofins, taxaIluminacao, valorFaturaComImposto)
@@ -81,6 +62,38 @@ function mostrarExtrato(consumidor, consumoKWh, valorConsumoBase, valorBandeira,
 
     console.log(extrato)
 }
+
+
+function calcValorBandeiraCada100kWh(bandeira) {
+    
+    if (bandeira === 'verde') {
+        return 0
+    } else if (bandeira === 'amarela') {
+        return 2.989
+    } else if (bandeira === 'vermelha patamar 1') {
+        return 6.5
+    } else if (bandeira === 'vermelha patamar 2') {
+        return 9.795
+    }
+
+}
+
+
+function calcTaxaIluminacao(valorFaturaSemImposto) {
+    
+    if (valorFaturaSemImposto === 0) {
+        return 0
+    } else {
+        return 0.03 * valorFaturaSemImposto
+    }
+
+}
+
+
+function calcValorBandeira(valorBandeiraCada100kWh) {
+    return Math.trunc(consumoKWh / 100) * valorBandeiraCada100kWh
+}
+
 
 
 main()

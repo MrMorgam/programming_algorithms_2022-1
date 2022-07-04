@@ -24,8 +24,8 @@ function main() {
     let naoOpinaram = 0
 
     console.clear()
-    console.log('')
     mostrarMenu(candidatos)
+    console.log('')
 
     // (d)
     let option = inputNumber('Digite a sua opção de escolha: ')
@@ -51,8 +51,8 @@ function main() {
         }
         
         console.clear()
-        console.log('')
         mostrarMenu(candidatos)
+        console.log('')
 
         option = inputNumber('Digite a sua opção de escolha: ')
 
@@ -80,7 +80,7 @@ function main() {
     let maisVotado = votos[0]
 
     for (let i = 0; i < quantidadeCandidatos; i++) {
-        if (maisVotado[i] > votos[i]) {
+        if (maisVotado < votos[i]) {
             indiceMaisVotos = i
             maisVotado = votos[i]
         }
@@ -98,7 +98,7 @@ function main() {
     console.log(`Votos em branco: ${votosEmBranco} (${percentualEmBranco.toFixed(2)}%)`)
     console.log(`Votos nulos: ${votosNulos} (${percentualNulo.toFixed(2)}%)`)
     console.log(`Não Opinaram: ${naoOpinaram} (${percentualNaoOpinou.toFixed(2)}%)`)
-    console.log(`O candidato ${candidatos[indiceMaisVotos]} lidera a pesquisa!`)
+    console.log(`O(a) candidato(a) ${candidatos[indiceMaisVotos]} lidera a pesquisa!`)
 
 }
 
