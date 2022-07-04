@@ -1,4 +1,4 @@
-import { displayText, inputNumberInRange, inputNumber, inputString } from './utils.js'
+import { displayText, inputNumberInRange, inputNumber, inputString, generateRandomNumber } from './utils.js'
 import { displayMenu, 
     enterToContinue, 
     createArrayWithInput, 
@@ -119,13 +119,20 @@ function main() {
                 array = mapArray(array, n => n ** value)
 
             } else if (option10 === 3) { // Unfinished
+                displayText('\nOpção inacabada! Por favor, aguarde novas atualizações...')
+            } else if (option10 === 4) {
                 
-            } else if (option10 === 4) { // Unfinished
-                
+                displayText('')
+
+                const max = inputNumber('Digite um valor mínimo: ')
+                const min = inputNumber('Digite um valor máximo: ')
+
+                array = mapArray(array, n => n < 0 ? n = generateRandomNumber(min, max) : n = n)
+
             } else if (option10 === 5) { // Unfinished
-                
+                displayText('\nOpção inacabada! Por favor, aguarde novas atualizações...')
             } else if (option10 === 6) { // Unfinished
-                
+                displayText('\nOpção inacabada! Por favor, aguarde novas atualizações...')
             }
 
         } else if (option === 11) {
@@ -164,7 +171,7 @@ function main() {
 
         } else if (option === 14) { // Unfinished
 
-            displayText('\nOpção inacabada! Por favor, aguarde novas versões...')
+            displayText('\nOpção inacabada! Por favor, aguarde novas atualizações...')
 
         }
 
@@ -172,6 +179,7 @@ function main() {
         enterToContinue()
         displayMenu()
         option = inputNumberInRange('Digite uma opção: ', 0, 14, 'Número de opção inválido! Digite uma opção: ')
+
     }
 
     console.clear()
