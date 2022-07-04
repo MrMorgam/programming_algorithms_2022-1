@@ -1,6 +1,14 @@
 import prompt from 'prompt-sync'
 const input = prompt({ sigint: true })
 
+
+// Input
+
+export function inputString(message) {
+    return input(message)
+}
+
+
 export function inputNumber(message, errorMessage = message) {
     let number = Number(input(message))
 
@@ -11,6 +19,7 @@ export function inputNumber(message, errorMessage = message) {
     return number
 }
 
+
 export function inputPositiveNumber(message, errorMessage = message) {
     let number = Number(input(message))
 
@@ -20,6 +29,7 @@ export function inputPositiveNumber(message, errorMessage = message) {
 
     return number
 }
+
 
 export function inputNegativetiveNumber(message, errorMessage = message) {
     let number = Number(input(message))
@@ -40,4 +50,17 @@ export function inputNumberInRange(message, min, max, errorMessage = message) {
     }
 
     return number
+}
+
+
+// Output
+
+export function displayText(message) {
+    return(console.log(message))
+}
+
+// Other
+
+export function generateRandomNumber(min = 0, max = 100){
+    return Math.floor(Math.random() * (max - min)) + min
 }
