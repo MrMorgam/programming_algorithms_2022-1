@@ -1,1 +1,1 @@
-# alg_prog_2022_1
+# programming_algorithms_2022-1
